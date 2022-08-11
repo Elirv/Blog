@@ -82,24 +82,43 @@ fetch("http://localhost:3000/users")
       });
     });
 
+// --------------------aparezcan los comentarios en una nueva ventama--------------------------
+    document.addEventListener("DOMContentLoaded", () => {
+      let combtn = document.getElementById("btn-comments");
+    
+      combtn.addEventListener("click", (e) => {
+        let papaProduct = document.getElementById("exampleModal5");
+        let papaProfile = document.getElementById("accordionFlushExample");
+    
+        papaProduct.classList.add("d-none");
+    
+        papaProfile.classList.remove("d-none");
+    
+        e.preventDefault();
+      });
+    });
+
+
+// -------------------------------------------- los comentarios ---------------------------------------
+
     fetch("http://localhost:3000/comments")
     .then((array) => array.json())
     .then((arrayComments) => {
       arrayComments.map((copy) => {
 
-        const modalComment = document.getElementById("comment-modal1");
+        const modalComment = document.getElementById("comment1");
         modalComment.textContent = arrayComments[0].body;
 
-        const modalComment1 = document.getElementById("comment-modal2");
+        const modalComment1 = document.getElementById("comment2");
         modalComment1.textContent = arrayComments[1].body;
 
-        const modalComment2 = document.getElementById("comment-modal3");
+        const modalComment2 = document.getElementById("comment3");
         modalComment2.textContent = arrayComments[2].body;
 
-        const modalComment3 = document.getElementById("comment-modal4");
+        const modalComment3 = document.getElementById("comment4");
         modalComment3.textContent = arrayComments[3].body;
 
-        const modalComment4 = document.getElementById("comment-modal5");
+        const modalComment4 = document.getElementById("comment5");
         modalComment4.textContent = arrayComments[4].body;
       });
     });
