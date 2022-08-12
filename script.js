@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
   fetch("http://localhost:3000/posts")
     .then((array) => array.json())
@@ -8,118 +7,157 @@ window.addEventListener("load", () => {
 
       for (i = 0; i < 5; i++) {
         const titles = document.getElementsByClassName("list-title");
-        titles[i].textContent = "Title: " + arrayObjetos[i].title;
+        titles[i].textContent = arrayObjetos[i].title;
 
         const modalTitle = document.getElementById("title-modal1");
-        modalTitle.textContent = "Title: " + arrayObjetos[0].title;
+        modalTitle.textContent = arrayObjetos[0].title;
 
         const modalTitle2 = document.getElementById("title-modal2");
-        modalTitle2.textContent = "Title: " + arrayObjetos[1].title;
+        modalTitle2.textContent = arrayObjetos[1].title;
 
         const modalTitle3 = document.getElementById("title-modal3");
-        modalTitle3.textContent = "Title: " + arrayObjetos[2].title;
+        modalTitle3.textContent = arrayObjetos[2].title;
 
         const modalTitle4 = document.getElementById("title-modal4");
-        modalTitle4.textContent = "Title: " + arrayObjetos[3].title;
+        modalTitle4.textContent = arrayObjetos[3].title;
 
         const modalTitle5 = document.getElementById("title-modal5");
-        modalTitle5.textContent = "Title: " + arrayObjetos[4].title;
+        modalTitle5.textContent = arrayObjetos[4].title;
 
         const modalBody = document.getElementById("body-modal1");
-        modalBody.textContent = "Body: " + arrayObjetos[0].body;
+        modalBody.textContent = arrayObjetos[0].body;
 
         const modalBody2 = document.getElementById("body-modal2");
-        modalBody2.textContent = "Body: " + arrayObjetos[1].body;
+        modalBody2.textContent = arrayObjetos[1].body;
 
         const modalBody3 = document.getElementById("body-modal3");
-        modalBody3.textContent = "Body: " + arrayObjetos[2].body;
+        modalBody3.textContent = arrayObjetos[2].body;
 
         const modalBody4 = document.getElementById("body-modal4");
-        modalBody4.textContent = "Body: " + arrayObjetos[3].body;
+        modalBody4.textContent = arrayObjetos[3].body;
 
         const modalBody5 = document.getElementById("body-modal5");
-        modalBody5.textContent = "Body: " + arrayObjetos[4].body;
+        modalBody5.textContent = arrayObjetos[4].body;
       }
     });
+  });
+// -------------------------------------------- email username ---------------------------------------
+fetch("http://localhost:3000/users")
+.then((array) => array.json())
+.then((arrayObjetos) => {
+  const listGroup = document.querySelector(".list-group");
+  listGroup.classList.remove("d-none");
+
+  const comentario = document.getElementById("name-modal1");
+  comentario.textContent = arrayObjetos[0].username;
+
+  const comentario1 = document.getElementById("name-modal2");
+  comentario1.textContent = arrayObjetos[1].username;
+
+  const comentario2 = document.getElementById("name-modal3");
+  comentario2.textContent = arrayObjetos[2].username;
+
+  const comentario3 = document.getElementById("name-modal4");
+  comentario3.textContent = arrayObjetos[3].username;
+
+  const comentario4 = document.getElementById("name-modal5");
+  comentario4.textContent = arrayObjetos[4].username;
+
 });
 
 fetch("http://localhost:3000/users")
-    .then((array) => array.json())
-    .then((arrayObjetos) => {
+.then((array) => array.json())
+.then((arrayObjetos) => {
+  const listGroup = document.querySelector(".list-group");
+  listGroup.classList.remove("d-none");
 
-      arrayObjetos.map((copy) => {
-        console.log(`Nombre ${copy.name} y Email ${copy.email}`);
+  const comentario = document.getElementById("email-modal1");
+  comentario.textContent = arrayObjetos[0].email;
 
-        const modalName = document.getElementById("name-modal1");
-        modalName.textContent = "name: " + arrayObjetos[0].name;
+  const comentario1 = document.getElementById("email-modal2");
+  comentario1.textContent = arrayObjetos[1].email;
 
-        const modalName2 = document.getElementById("name-modal2");
-        modalName2.textContent = "name: " + arrayObjetos[1].name;
+  const comentario2 = document.getElementById("email-modal3");
+  comentario2.textContent = arrayObjetos[2].email;
 
-        const modalName3 = document.getElementById("name-modal3");
-        modalName3.textContent = "name: " + arrayObjetos[2].name;
+  const comentario3 = document.getElementById("email-modal4");
+  comentario3.textContent = arrayObjetos[3].email;
 
-        const modalName4 = document.getElementById("name-modal4");
-        modalName4.textContent = "name: " + arrayObjetos[3].name;
-
-        const modalName5 = document.getElementById("name-modal5");
-        modalName5.textContent = "name: " + arrayObjetos[4].name;
-
-        const modalEmail = document.getElementById("email-modal1");
-        modalEmail.textContent = "email: " + arrayObjetos[0].email;
-
-        const modalEmail2 = document.getElementById("email-modal2");
-        modalEmail2.textContent = "email: " + arrayObjetos[1].email;
-
-        const modalEmail3 = document.getElementById("email-modal3");
-        modalEmail3.textContent = "email: " + arrayObjetos[2].email;
-
-        const modalEmail4 = document.getElementById("email-modal4");
-        modalEmail4.textContent = "email: " + arrayObjetos[3].email;
-
-        const modalEmail5 = document.getElementById("email-modal5");
-        modalEmail5.textContent = "email: " + arrayObjetos[4].email;
-      });
-    });
-
-// --------------------aparezcan los comentarios en una nueva ventama--------------------------
-    document.addEventListener("DOMContentLoaded", () => {
-      let combtn = document.getElementById("btn-comments");
-    
-      combtn.addEventListener("click", (e) => {
-        let papaProduct = document.getElementById("exampleModal5");
-        let papaProfile = document.getElementById("accordionFlushExample");
-    
-        papaProduct.classList.add("d-none");
-    
-        papaProfile.classList.remove("d-none");
-    
-        e.preventDefault();
-      });
-    });
+  const comentario4 = document.getElementById("email-modal5");
+  comentario4.textContent = arrayObjetos[4].email;
 
 
-// -------------------------------------------- los comentarios ---------------------------------------
+});
 
-    fetch("http://localhost:3000/comments")
-    .then((array) => array.json())
-    .then((arrayComments) => {
-      arrayComments.map((copy) => {
+  // -------------------------------------------- los comentarios ---------------------------------------
 
-        const modalComment = document.getElementById("comment1");
-        modalComment.textContent = arrayComments[0].body;
+fetch("http://localhost:3000/comments")
+.then(response => response.json())
+.then((arrayObjetos) => {
+arrayObjetos.map((copy) => {
+  // console.log(`${copy.name} ${copy.email} ${copy.body}`);
 
-        const modalComment1 = document.getElementById("comment2");
-        modalComment1.textContent = arrayComments[1].body;
+  const comentario = document.getElementById("comment-1");
+  comentario.textContent = arrayObjetos[0].body;
 
-        const modalComment2 = document.getElementById("comment3");
-        modalComment2.textContent = arrayComments[2].body;
+  const comentario1 = document.getElementById("comment-2");
+  comentario1.textContent = arrayObjetos[1].body;
 
-        const modalComment3 = document.getElementById("comment4");
-        modalComment3.textContent = arrayComments[3].body;
+  const comentario2 = document.getElementById("comment-3");
+  comentario2.textContent = arrayObjetos[2].body;
 
-        const modalComment4 = document.getElementById("comment5");
-        modalComment4.textContent = arrayComments[4].body;
-      });
-    });
+  const comentario3 = document.getElementById("comment-4");
+  comentario3.textContent = arrayObjetos[3].body;
+
+  const comentario4 = document.getElementById("comment-5");
+  comentario4.textContent = arrayObjetos[4].body;
+});
+});
+
+fetch("http://localhost:3000/comments")
+.then(response => response.json())
+.then((arrayObjetos) => {
+arrayObjetos.map((copy) => {
+  // console.log(`${copy.name} ${copy.email} ${copy.body}`);
+
+  const coTitle = document.getElementById("ti-1");
+  coTitle.textContent = arrayObjetos[0].name;
+
+  const coTitle1 = document.getElementById("ti-2");
+  coTitle1.textContent = arrayObjetos[1].name;
+
+  const coTitle2 = document.getElementById("ti-3");
+  coTitle2.textContent = arrayObjetos[2].name;
+
+  const coTitle3 = document.getElementById("ti-4");
+  coTitle3.textContent = arrayObjetos[3].name;
+
+  const coTitle4 = document.getElementById("ti-5");
+  coTitle4.textContent = arrayObjetos[4].name;
+});
+});
+
+fetch("http://localhost:3000/comments")
+.then(response => response.json())
+.then((arrayComments) => {
+  arrayComments.map((copy) => {
+  // console.log(`${copy.name} ${copy.email} ${copy.body}`);
+
+  const conEmail = document.getElementById("com-email-1");
+  conEmail.textContent = arrayComments[0].email;
+
+  const conEmail1 = document.getElementById("com-email-2");
+  conEmail1.textContent = arrayComments[1].email;
+
+  const conEmail2 = document.getElementById("com-email-3");
+  conEmail2.textContent = arrayComments[2].email;
+
+  const conEmail3 = document.getElementById("com-email-4");
+  conEmail3.textContent = arrayComments[3].email;
+
+  const conEmail4 = document.getElementById("com-email-5");
+  conEmail4.textContent = arrayComments[4].email;
+});
+});
+
 
